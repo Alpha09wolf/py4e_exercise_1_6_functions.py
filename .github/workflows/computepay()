@@ -1,0 +1,25 @@
+# pay computation
+def computepay():
+    while True:
+        hours = input("Enter hours: ")
+        if hours == 'done':
+            print("All done!")
+            quit()
+        try:
+            f_hours = float(hours)
+        except ValueError:
+            print("Error, please enter numeric input")
+            continue
+        rate = input("Enter rate: ")
+        try:
+            f_rate = float(rate)
+        except ValueError:
+            print("Error, please enter numeric input:\nrestarting...")
+            continue
+        if f_hours > 40:
+            extra_hours = ((f_hours - 40) * 1.5) + 40
+            extra_pay = extra_hours * f_rate
+            print("Pay: ", extra_pay)
+        else:
+            pay = float(hours) * float(rate)
+            print("Pay:", pay)
